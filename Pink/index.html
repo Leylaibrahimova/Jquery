@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shiny Site with Emoji Confetti</title>
+  <style>
+    body {
+      background-color: #fff;
+      color: #ff69b4;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    .container {
+      margin-top: 100px;
+    }
+
+    h1 {
+      font-size: 3em;
+    }
+
+    .btn {
+      background-color: #ff69b4;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.2em;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      animation: sparkle 1s linear infinite;
+    }
+
+    @keyframes sparkle {
+      0% {box-shadow: 0 0 10px #ff69b4;}
+      50% {box-shadow: 0 0 20px #ff69b4, 0 0 40px #ff69b4, 0 0 60px #ff69b4, 0 0 80px #ff69b4;}
+      100% {box-shadow: 0 0 10px #ff69b4;}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to Shiny Site with Emoji Confetti</h1>
+    <p>This is a fancy and shiny website!</p>
+    <button class="btn">Click me for sparkles and emoji confetti!</button>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const jsConfetti = new JSConfetti();
+
+      document.querySelector('.btn').addEventListener('click', function() {
+        jsConfetti.addConfetti({
+          emojis: ['🌸', '🌺', '💗', '✩' ,'🤍' ,'🎀', '₊˚ʚ ᗢ₊˚✧ ﾟ.'],
+          confettiColors: ['#fff', '#ff69b4', '#32cd32', '#4169e1', '#ff1493', '#ffd700'],
+          emojiSize: 70,
+          confettiNumber: 1000,
+
+        });
+        alert('Sparkles and emoji confetti everywhere! 🎉');
+      });
+    });
+  </script>
+</body>
+</html>
