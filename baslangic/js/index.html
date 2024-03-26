@@ -3,59 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="jquery-3.7.1.min.js"></script>
-    <script src="jquery-ui.js"></script>
-
+    <title>Firework 1</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <style>
 
-      .deneme{
-      
-      width:700px;
-      height:300px;
-      margin-bottom:15px;
-      font-size: 32px;
-      position: relative;
-      background-color: green;
-      }
-      
-      .div2{
-        width:200px;
-        height:100px;
-        margin-left:100px;
-        position: relative;
-        background-color: red;
-      }
-      
-      </style>
-
-
+        .firework-area {
+            width: 1100px;
+            height: 490px;
+            color: snow;
+            text-decoration-style: solid;
+            font-size: x-large;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgb(241, 10, 21);
+            padding: 20px;
+            cursor: pointer;
+            margin:auto;
+        }
+    </style>
 </head>
+<body>
 
 
-   
+    <div class="firework-area">
+        <b>Bu alana tıklayın havai fişek patlasın!</b>
+    </div>
 
-
-  <div id="div1" class="deneme"> 
-    <br/>
-     <div id="div2" class="div2"></div>
-    </div> 
-
-
-  
- <script>
-$(function(){
-$("#btn1").click(function(){
-  setInterval(function(){
-  $("#div1").hide(2000).show(2000).fadeOut(2000).css("backgroundColor", "red").fadeIn(2000);
-  
-  },8000)
-});
-});
-
-
-</script>
-
-
+    <script>
+        $(document).ready(function(){
+            $(".firework-area").click(function(){
+                $(this).hide("explode", { pieces: 50 }, 1000);
+            });
+        });
+    </script>
 </body>
 </html>
