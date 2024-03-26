@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script src="jquery-ui.js"></script>
+
+    <style>
+
+      .deneme{
+      
+      width:700px;
+      height:300px;
+      margin-bottom:15px;
+      font-size: 32px;
+      position: relative;
+      background-color: green;
+      }
+      
+      .div2{
+        width:200px;
+        height:100px;
+        margin-left:100px;
+        position: relative;
+        background-color: red;
+      }
+      
+      </style>
+
+
+</head>
+
+
+   
+
+
+  <div id="div1" class="deneme"> 
+    <br/>
+     <div id="div2" class="div2"></div>
+    </div> 
+
+
+  
+ <script>
+$(function(){
+$("#btn1").click(function(){
+  setInterval(function(){
+  $("#div1").hide(2000).show(2000).fadeOut(2000).css("backgroundColor", "red").fadeIn(2000);
+  
+  },8000)
+});
+});
+
+
+</script>
+
+
+</body>
+</html>
