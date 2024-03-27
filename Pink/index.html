@@ -19,7 +19,7 @@
 
     h1 {
       font-size: 3em;
-      text-shadow: 4px 4px 5px rgba(252, 7, 129, 0.8);;
+      text-shadow: 4px 4px 5px rgba(252, 7, 129, 0.8);
     }
 
     .btn {
@@ -60,23 +60,23 @@
 
   <img src="https://i.pinimg.com/originals/8c/24/59/8c2459d00e371f7da03a5d7c83617486.gif" alt="GIF" class="gif">
   
-  <audio id="myAudio" src="Melancholic Piano  Winter Waltz  Sheets.mp3" loop></audio>
-  <audio id="myAudio 2" src="Morning Meditation  Relaxing Nature Sounds for 10 Minutes-[AudioTrimmer.com].mp3" loop></audio>
-
   <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       const jsConfetti = new JSConfetti();
       
-      // Fare hareketiyle ikinci müziği başlatan fonksiyon
-      function startSecondMusicOnMouseMove() {
-        // İkinci müziği al
-        var audio2 = document.getElementById("myAudio 2");
-        // İkinci müziği çal
-        audio2.play();
-        // Fare hareketi etkinliğini kaldır
-        document.removeEventListener("mousemove", startSecondMusicOnMouseMove);
-      }
+      // Müzikleri tanımla
+      var snd1 = new Audio();
+      var src1 = document.createElement("source");
+      src1.type = "audio/mpeg";
+      src1.src = "Melancholic Piano  Winter Waltz  Sheets.mp3";
+      snd1.appendChild(src1);
+
+      var snd2 = new Audio();
+      var src2 = document.createElement("source");
+      src2.type = "audio/mpeg";
+      src2.src = "Morning Meditation  Relaxing Nature Sounds for 10 Minutes.mp3";
+      snd2.appendChild(src2);
 
       // Tıkla başlasın
       document.querySelector('.btn').addEventListener('click', function() {
@@ -86,12 +86,15 @@
           emojiSize: 5,
           confettiNumber: 2000,
         });
-        // Birinci müziği al
-        var audio1 = document.getElementById("myAudio");
-        // Birinci müziği çal
-        audio1.play();
-        // Fare hareketiyle ikinci müziği başlatan fonksiyonu çağır
-        startSecondMusicOnMouseMove();
+        
+        // İkinci müziğin ses seviyesini 0.5 olarak ayarla
+        snd2.addEventListener('canplay', function() {
+          snd2.volume = 0.5;
+        });
+
+        // Müzikleri çal
+        snd1.play(); 
+        snd2.play();
       });
     });
   </script>
