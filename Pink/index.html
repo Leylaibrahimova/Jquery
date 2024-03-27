@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shiny Site with Emoji Confetti</title>
+  <title>Shiny Site</title>
   <style>
     body {
-      background-color: #fff;
+      background-color: #000000;
       color: #ff69b4;
       font-family: Arial, sans-serif;
       text-align: center;
+      position: relative;
     }
 
     .container {
@@ -18,10 +19,11 @@
 
     h1 {
       font-size: 3em;
+      text-shadow: 4px 4px 5px rgba(252, 7, 129, 0.8);;
     }
 
     .btn {
-      background-color: #ff69b4;
+      background-color: #f01180;
       color: #fff;
       padding: 10px 20px;
       border: none;
@@ -39,29 +41,57 @@
       50% {box-shadow: 0 0 20px #ff69b4, 0 0 40px #ff69b4, 0 0 60px #ff69b4, 0 0 80px #ff69b4;}
       100% {box-shadow: 0 0 10px #ff69b4;}
     }
+
+    .gif {
+      position: absolute;
+      top: 90px;
+      left: 30px;
+      height: 350px; 
+    }
+
+
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Welcome to Shiny Site with Emoji Confetti</h1>
-    <p>This is a fancy and shiny website!</p>
-    <button class="btn">Click me for sparkles and emoji confetti!</button>
+    <h1>PARILTILAR ALƏMİNƏ XOŞ GƏLDİN</h1>
+    <p> İşığından ilhamlandıq 💗 </p>
+    <button class="btn">Tıkla, möcüzə başlasın!</button>
   </div>
+
+  <img src="https://i.pinimg.com/originals/8c/24/59/8c2459d00e371f7da03a5d7c83617486.gif" alt="GIF" class="gif">
+  
+  <audio id="myAudio" src="Melancholic Piano  Winter Waltz  Sheets.mp3" loop></audio> <!-- Müzik eklenen kısım -->
 
   <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       const jsConfetti = new JSConfetti();
-
+      
+      // Fare hareketiyle müziği başlatan fonksiyon
+      function startMusicOnMouseMove() {
+        // Müzik çaları al
+        var audio = document.getElementById("myAudio");
+        // Fare hareketini dinle
+        document.addEventListener("mousemove", function() {
+          // Müziği çal
+          audio.play();
+          // Fare hareketi etkinliğini kaldır
+          document.removeEventListener("mousemove", startMusicOnMouseMove);
+        });
+      }
+      
+      // Düğmeye tıklamakla müziği başlat
       document.querySelector('.btn').addEventListener('click', function() {
         jsConfetti.addConfetti({
-          emojis: ['🌸', '🌺', '💗', '✩' ,'🤍' ,'🎀', '₊˚ʚ ᗢ₊˚✧ ﾟ.'],
+          emojis: ['🌸', '🌺', '💗', '✩' ,'🤍' ,'🎀', '₊˚ʚ ᗢ₊˚✧ ﾟ.', '🤍'],
           confettiColors: ['#fff', '#ff69b4', '#32cd32', '#4169e1', '#ff1493', '#ffd700'],
-          emojiSize: 70,
-          confettiNumber: 1000,
-
+          emojiSize: 5,
+          confettiNumber: 2000,
         });
         alert('Sparkles and emoji confetti everywhere! 🎉');
+        // Fare hareketiyle müziği başlatan fonksiyonu çağır
+        startMusicOnMouseMove();
       });
     });
   </script>
