@@ -49,7 +49,6 @@
       height: 350px; 
     }
 
-
   </style>
 </head>
 <body>
@@ -61,27 +60,25 @@
 
   <img src="https://i.pinimg.com/originals/8c/24/59/8c2459d00e371f7da03a5d7c83617486.gif" alt="GIF" class="gif">
   
-  <audio id="myAudio" src="Melancholic Piano  Winter Waltz  Sheets.mp3" loop></audio> <!-- Müzik eklenen kısım -->
+  <audio id="myAudio" src="Melancholic Piano  Winter Waltz  Sheets.mp3" loop></audio>
+  <audio id="myAudio 2" src="Morning Meditation  Relaxing Nature Sounds for 10 Minutes-[AudioTrimmer.com].mp3" loop></audio>
 
   <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       const jsConfetti = new JSConfetti();
       
-      // Fare hareketiyle müziği başlatan fonksiyon
-      function startMusicOnMouseMove() {
-        // Müzik çaları al
-        var audio = document.getElementById("myAudio");
-        // Fare hareketini dinle
-        document.addEventListener("mousemove", function() {
-          // Müziği çal
-          audio.play();
-          // Fare hareketi etkinliğini kaldır
-          document.removeEventListener("mousemove", startMusicOnMouseMove);
-        });
+      // Fare hareketiyle ikinci müziği başlatan fonksiyon
+      function startSecondMusicOnMouseMove() {
+        // İkinci müziği al
+        var audio2 = document.getElementById("myAudio 2");
+        // İkinci müziği çal
+        audio2.play();
+        // Fare hareketi etkinliğini kaldır
+        document.removeEventListener("mousemove", startSecondMusicOnMouseMove);
       }
-      
-      // Düğmeye tıklamakla müziği başlat
+
+      // Tıkla başlasın
       document.querySelector('.btn').addEventListener('click', function() {
         jsConfetti.addConfetti({
           emojis: ['🌸', '🌺', '💗', '✩' ,'🤍' ,'🎀', '₊˚ʚ ᗢ₊˚✧ ﾟ.', '🤍'],
@@ -89,9 +86,12 @@
           emojiSize: 5,
           confettiNumber: 2000,
         });
-        alert('Sparkles and emoji confetti everywhere! 🎉');
-        // Fare hareketiyle müziği başlatan fonksiyonu çağır
-        startMusicOnMouseMove();
+        // Birinci müziği al
+        var audio1 = document.getElementById("myAudio");
+        // Birinci müziği çal
+        audio1.play();
+        // Fare hareketiyle ikinci müziği başlatan fonksiyonu çağır
+        startSecondMusicOnMouseMove();
       });
     });
   </script>
